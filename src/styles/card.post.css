@@ -1,0 +1,27 @@
+.gv-card-post {
+    background: var(--nav-bg);
+    color: var(--h-color);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1em;
+    transition: all .3s ease;
+}
+
+.gv-card-post:not(:last-child) {
+    margin-bottom: 1em;
+}
+
+.gv-card-post header small {
+    color: var(--gray3);
+}
+
+.gv-card-post header h3 {
+    border: none;
+    margin: 0;
+}
+
+.gv-card-post:hover {
+    transform: scale(1.02);
+    background: var(--tag-bg);
+}

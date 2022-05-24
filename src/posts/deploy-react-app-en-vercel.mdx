@@ -1,0 +1,135 @@
+---
+title: Deploy React App en Vercel
+date: "2020-09-03"
+description: "🚀 Entre algunas de las buenas herramientas que tiene Vercel, para los desarrolladores esta el servicio de hosting gratuito en el que puedes publicar tus aplicaciones basados en React, Gatsby, Angular, etc."
+author: "@malcode"
+---
+
+En primer lugar crea una cuenta en vercel.com.
+
+Ahora instala `vercel` en tu entorno local.
+**npm**:
+
+<SyntaxHighlighter language="bash">
+    {`
+        npm i -g vercel
+    `}
+</SyntaxHighlighter>
+
+**Yarn**:
+
+<SyntaxHighlighter language="bash">
+    {`
+        yarn global add vercel
+    `}
+</SyntaxHighlighter>
+
+Ya instalado vercel, ubícate en la carpeta raíz de tu proyecto. Ya aquí inicia sesión en vercel con el siguiente comando:
+
+<SyntaxHighlighter language="bash">
+    {`
+        ~ malcode/
+        vercel login
+    `}
+</SyntaxHighlighter>
+
+En Seguida te pedirá tu correo electrónico con el que esta vinculado tu cuenta vercel, para enviarte un enlace de autenticación.
+
+<SyntaxHighlighter language="bash">
+    {`
+    Vercel CLI 20.1.1
+    Enter your email: developer@malcode.dev
+    `}
+</SyntaxHighlighter>
+
+![vercelConfirmLogin](/files/login-confirm.png)
+
+Ya verificada tu autenticación estás listo 🐱‍👤 para publicar tu aplicación, para dar inicio ejecuta el siguiente comando:
+
+<SyntaxHighlighter language="bash">
+    {`
+        ~ malcode/
+        vercel
+    `}
+</SyntaxHighlighter>
+
+Ahora te pregunta si quieres ¿Configurar e implementar? 🤷‍♂️, Si `y`:
+
+<SyntaxHighlighter language="bash">
+    {`
+    Vercel CLI 20.1.1
+    ? Set up and deploy “~ malcode”? [Y/n] y
+    `}
+</SyntaxHighlighter>
+
+¿En qué ámbito desea implementar?, en vercel puedes crear equipos, así que se te listara todos los equipos que tengas y podras selecciónar en el "team" | "scope" que deseas montar tu aplicación. Como acabamos de crear nuestra cuenta tendras uno por default con tu nombre. Continuemos.
+
+**Arrow up & arrow down**, para navegar en la lista de "teams" || "scopes"
+
+<SyntaxHighlighter language="bash">
+    {`
+    ? Which scope do you want to deploy to? y
+    ● malcodedev
+    `}
+</SyntaxHighlighter>
+
+¿Enlace a proyecto existente?. `N`, para continuar.
+
+<SyntaxHighlighter language="bash">
+    {`
+    ? Link to existing project? [y/N] N
+    `}
+</SyntaxHighlighter>
+
+Dale un nombre a tu proyecto, en mi caso: `malcode`
+
+<SyntaxHighlighter language="bash">
+    {`
+    ? What’s your project’s name? malcode
+    `}
+</SyntaxHighlighter>
+
+¿En qué directorio se encuentra su código?, Enter para continuar si ten encuentra en la carpeta realiza de tu proyecto, sino debes indicar la ruta.
+
+<SyntaxHighlighter language="bash">
+    {`
+    ? In which directory is your code located? ./
+    `}
+</SyntaxHighlighter>
+
+Si no deseas sobrescribir la configuración de compilación ingrese `N`, para continuar.
+
+<SyntaxHighlighter language="bash">
+    {`
+    Auto-detected Project Settings (Create React App):
+    - Build Command: npm run build or react-scripts build
+    - Output Directory: build
+    - Development Command: react-scripts start
+    ? Want to override the settings? [y/N] N
+    `}
+</SyntaxHighlighter>
+
+Es todo, ahora solo queda esperar unos minutos, para ver tu aplicación online. 😎
+
+1 minuto... despues tendras esto como resultado de que tu aplicación ya fue publicado, pero está en modo desarrollo.
+
+<SyntaxHighlighter language="bash">
+    {`
+    �  Linked to malcode/movies-app (created .vercel and added it to .gitignore)
+    �  Inspect: https://vercel.com/malcode/movies-app/1zxp6p1rf [2s]
+    ✅  Production: https://movies-app-gold.vercel.app [copied to clipboard] [2m]
+    �  Deployed to production. Run vercel --prod to overwrite later (https://vercel.link/2F).
+    �  To change the domain or build command, go to https://vercel.com/gvargas/movies-app/settings
+    `}
+</SyntaxHighlighter>
+
+Para pasar tu aplicación a modo producción y asegurarnos de que todos los modulos esten optimos, ejecuta el siguiente comando:
+
+<SyntaxHighlighter language="bash">
+    {`
+    ~ malcode/
+    vercel --prod
+    `}
+</SyntaxHighlighter>
+
+Es todo...

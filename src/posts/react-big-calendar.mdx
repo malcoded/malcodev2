@@ -1,0 +1,189 @@
+---
+title: Creando Calendarios en React
+date: "2020-08-24"
+description: "📆 Implementar calendarios a nuestros proyectos basados en React.js es muy facil con ReactBigCalendar. Un componente de calendario de eventos creado para React y diseñado para navegadores modernos (lea: IE10 +) y utiliza flexbox."
+author: "@malcode"
+---
+
+Empecemos…🤞
+
+Instalar `react-big-calendar` a través de **npm**:
+
+`
+  npm i --save react-big-calendar
+`
+
+o de **Yarn**:
+
+`
+  yarn add react-big-calendar
+`
+
+Los estilos se pueden encontrar en: `react-big-calendar/lib/css/react-big-calendar.css` y deben incluirse en la página con el componente de calendario. La internacionalización y localización de la fecha es difícil y react-big-calendar ni siquiera intenta resolver ese problema. En su lugar, puede utilizar una de las muchas soluciones excelentes que ya existen, a través de adaptadores llamados “localizadores”.
+Big Calendar incluye dos localizadores para usar con `globalize.js` o `Moment.js.` Elija el localizador que mejor se adapte a sus necesidades, o escriba el suyo.
+Hagas lo que hagas, deberás configurarlo antes de poder usar el calendario (solo necesitas configurarlo una vez).
+
+### Paso UNO
+
+Importa bigcalendar y uno de los Localizadores, moment.js o globalize.js.
+
+<SyntaxHighlighter language="javascript">
+{`
+import React, { Component } from "react"
+import BigCalendar from "react-big-calendar"
+import moment from "moment"
+`}
+</SyntaxHighlighter>
+
+### Paso DOS
+
+Configura el localizador
+Necesita cargar el archivo de configuración regional que necesita. Por ejemplo, para nuestra aplicación (admitimos españo => es) hago:
+
+<SyntaxHighlighter language="javascript">
+{`
+require("moment/locale/es.js")
+const localizer = BigCalendar.momentLocalizer(moment)
+`}
+</SyntaxHighlighter>
+
+Puedes incluir múltiples idiomas, solo debes requerir el archivo .js de idiomas según tu necesidad.
+
+Ejemplo (es,en, nl, fr,cs). [Más en moment.js](https://momentjs.com/docs/)
+<SyntaxHighlighter language="javascript">
+{`
+require("moment/locale/es.js")
+require("moment/locale/cs.js")
+require("moment/locale/fr.js")
+require("moment/locale/nl.js")
+`}
+</SyntaxHighlighter>
+### Paso TRES
+
+Creamos un un array de objetos, con nuestros eventos.
+
+<SyntaxHighlighter language="javascript">
+{`
+const myEventsList = [
+  {
+    title: "today",
+    start: new Date("2019-05-05 10:22:00"),
+    end: new Date("2019-05-05 10:42:00"),
+  },
+  {
+    title: "string",
+    start: new Date("2019-05-05 12:22:00"),
+    end: new Date("2019-05-05 13:42:00"),
+  },
+]
+`}
+</SyntaxHighlighter>
+### Paso CUATRO
+
+Agrega el componente BigCalendar,
+Asegúrate de que el contenedor de tu componente tenga una altura definida.
+`style={{height:${400}px}}` o lo puedes hacer en un archivo .css externo agregándole una clase al contenedor.
+
+<SyntaxHighlighter language="jsx">
+{`
+class EventsCalendar extends Component {
+  render() {
+    return (
+      <div style={{ height: '400px' }} className="bigCalendar-container">
+        <BigCalendar
+          localizer={localizer}
+          events={myEventsList}
+          startAccessor="start"
+          endAccessor="end"
+        />
+      </div>
+    )
+  }
+}
+`}
+</SyntaxHighlighter>
+
+Con esto ya tienes react-big-calendar integrado en tu app con el calendario en español más no los controles del calendario. Pues bien trabajemos en eso.
+
+![bigcalendar](/files/bigcalendar01.png)
+
+### Paso CINCO
+
+No hay mucho que hacer, en el componente BigCalendar agregamos la propiedad messages:
+
+<SyntaxHighlighter language="jsx">
+  {`
+    class EventsCalendar extends Component {
+      render() {
+        return (
+          <div style={{ height: '400px' }} className="bigCalendar-container">
+            <BigCalendar
+              localizer={localizer}
+              events={myEventsList}
+              startAccessor="start"
+              endAccessor="end"
+              messages={{
+                next: "sig",
+                previous: "ant",
+                today: "Hoy",
+                month: "Mes",
+                week: "Semana",
+                day: "Día",
+              }}
+            />
+          </div>
+        )
+      }
+    }
+  `}
+</SyntaxHighlighter>
+
+Es todo, ya tenemos los controles en nuestro idioma.
+
+![BigCalendar](/files/bigcalendar02.png)
+
+Nuestro código final queda de la siguiente manera.
+<SyntaxHighlighter language="jsx">
+{`
+import React, { Component } from "react"
+import BigCalendar from "react-big-calendar"
+import moment from "moment"
+require("moment/locale/es.js")
+
+const localizer = BigCalendar.momentLocalizer(moment)
+const myEventsList = [
+  {
+    title: "today",
+    start: new Date("2019-05-05 10:22:00"),
+    end: new Date("2019-05-05 10:42:00"),
+  },
+  {
+    title: "string",
+    start: new Date("2019-05-05 12:22:00"),
+    end: new Date("2019-05-05 13:42:00"),
+  },
+]
+class EventsCalendar extends Component {
+  render() {
+    return (
+      <div style={{ height: '400px' }} className="bigCalendar-container">
+        <BigCalendar
+          localizer={localizer}
+          events={myEventsList}
+          startAccessor="start"
+          endAccessor="end"
+          messages={{
+            next: "sig",
+            previous: "ant",
+            today: "Hoy",
+            month: "Mes",
+            week: "Semana",
+            day: "Día",
+          }}
+        />
+      </div>
+    )
+  }
+}
+`}
+</SyntaxHighlighter>
