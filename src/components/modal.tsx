@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import googleIcon from "assets/images/google.svg"
 
 type ModalProps = {
@@ -15,9 +16,10 @@ const Modal = ({visible, handleOnCloseModal, authGoogleAcount}: ModalProps) => {
         >
             <div className="gv-login-wrapper gv-in-modal">
                 <button className="gv-btn gv-btn-signin" onClick={authGoogleAcount}>
-                    <img
+                    <Image
                         src={googleIcon.src}
                         width="24"
+                        height="18"
                         alt="google-login"
                         className="gv-mr-4"
                     />

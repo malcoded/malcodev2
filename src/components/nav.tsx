@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import {useState, useContext} from 'react'
 import {auth, signOut, onAuthGoogle} from '../utils/firebase.config'
 import {AuthContext} from './../utils/AuthProvider'
@@ -63,12 +64,12 @@ const Nav = (props: Props) => {
             </Link>
             {currentUser ? (
                 <button className="gv-item gv-remove-style" onClick={onCloseSession}>
-                    <img src={currentUser.photoURL} alt={currentUser?.displayName} />
+                    <Image src={currentUser.photoURL} alt={currentUser?.displayName} height='80%' width='40%' />
                     <span className="gv-tag-green gv-tag-sm  gx-mt-2">Salir</span>
                 </button>
             ) : (
-                <button className="gv-item gv-remove-style" onClick={onLogin}>
-                    <img src={GoogleIcon.src} alt="google-login" />
+                <button className="gv-item gx-logo-login gv-remove-style" onClick={onLogin}>
+                    <Image src={GoogleIcon.src} alt="google-login" height='80%' width='60%' />
                     <span className="gv-tag gv-tag-sm ">Login</span>
                 </button>
             )}

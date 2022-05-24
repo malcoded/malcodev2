@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import empty_page from "assets/images/empty_page.svg"
 
 const EmptyPage = ({
@@ -12,7 +13,7 @@ const EmptyPage = ({
       <div className="gv-container-not-found">
         <h3>{title}</h3>
         <div className="gv-img_portada_not_found">
-          <img src={empty_page.src} alt="pagina no encontrada" />
+          <Image src={empty_page} alt="pagina no encontrada" />
         </div>
         <p>
           {description}

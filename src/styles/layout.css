@@ -58,9 +58,9 @@ main {
 }
 
 .gv-item {
+  height: var(--nav-width);
   width: var(--nav-width);
   max-width: 70px;
-  height: var(--nav-width);
   max-height: 70px;
   background: var(--nav-bg);
   color: var(--text-color);
@@ -102,6 +102,8 @@ main {
   font-size: 14px;
   padding-top: 8px;
 }
+
+
 
 .gv-item img,
 .gv-item svg {
@@ -164,8 +166,8 @@ footer {
 }
 
 .gv-copyright img {
-  width: 1em;
-  height: 1em;
+  width: 1em !important;
+  height: 1em !important;
   display: inline-block;
   padding: 0 3px;
   margin-bottom: -5px;
@@ -343,7 +345,7 @@ h6 {
 }
 
 .gv-img_portada_not_found img {
-  width: 80%;
+  width: 80% !important;
 }
 
 .gv-container-center-title {

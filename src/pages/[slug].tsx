@@ -34,6 +34,7 @@ const PostPage = ({frontMatter, slug, mdxSource, previous, next, }: PostPageProp
       if(currentUser) {
         const currentClap = post && post.claps ? post.claps : 0
         await setDoc(doc(db, 'posts', slug), {claps: currentClap + 1})
+        getClaps(slug)
       } else {
         setVisibile(true)
       }

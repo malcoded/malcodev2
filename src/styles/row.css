@@ -10,7 +10,7 @@
 }
 
 .gv-row .gv-img_portada img {
-    height: 100%;
+    height: 100% !important;
     margin: auto 0;
 }
 

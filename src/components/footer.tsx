@@ -1,5 +1,5 @@
 import Link from 'next/link'
-
+import Image from 'next/image'
 import reactIcon from "assets/images/react.svg"
 import firebaseIcon from "assets/images/firebase.svg"
 import vercelIcon from "assets/images/vercel.svg"
@@ -20,9 +20,9 @@ const Footer = ({menuLinks}: Props) => {
                 </div>
                 <div className="gv-copyright-item">
                     Created with
-                    <img src={reactIcon.src} alt="react" className="gv-pl-4" />
-                    <img src={firebaseIcon.src} alt="firebase" />
-                    <img src={vercelIcon.src} alt="vercel" /> by
+                    <Image src={reactIcon} alt="react" className="gv-pl-4" />
+                    <Image src={firebaseIcon} alt="firebase" />
+                    <Image src={vercelIcon} alt="vercel" /> by
                     <Link
                         href="/about"
                     >

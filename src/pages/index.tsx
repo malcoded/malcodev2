@@ -1,7 +1,8 @@
 import Layout from 'components/layout'
 import Link from 'next/link'
+import Image from 'next/image'
 import fs from 'fs'
-import * as path from 'path'
+import path from 'path'
 import matter from 'gray-matter'
 
 import CardPost from './../components/card.post'
@@ -11,7 +12,7 @@ const Home = ({posts}: {posts: any}) => {
   return (<Layout title="Aprenda a crear aplicaciones web modernas 🔥">
     <div className="gv-row">
       <div className="gv-img_portada">
-        <img src={home_image.src} alt="home" />
+        <Image src={home_image} alt="home" />
       </div>
       <div>
         <h1>
@@ -65,6 +66,10 @@ export const getStaticProps = async () => {
       frontMatter,
       slug: filename.split('.')[0],
     }
+  })
+
+  posts.sort((a: any, b: any) => {
+    return (new Date(b.frontMatter.date) as any) - (new Date(a.frontMatter.date) as any)
   })
 
   return {

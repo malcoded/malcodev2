@@ -5,6 +5,7 @@ import Header from './header'
 import Footer from './footer'
 import AuthProvider from 'utils/AuthProvider'
 import Head from 'next/head'
+import Script from 'next/script'
 
 
 
@@ -31,10 +32,17 @@ const Layout = (props: Props) => {
 
     return (
         <AuthProvider>
+            <Script id="google-analytic" strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=UA-114960628-2`}>
+                {`    
+                    window.dataLayer = window.dataLayer || []
+                    function gtag(){dataLayer.push(arguments)}
+                    gtag('js', new Date());
+                    gtag('config', 'UA-114960628-2')
+                `}
+            </Script>
             <Head>
                 <meta charSet="utf-8" />
                 <title>{title} | malcode</title>
-                <meta http-equiv="X-UA-Compatible" content="IE=7" />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 <meta name="description" content={description} />
                 <meta name="keywords" content={keywords} />
@@ -50,6 +58,7 @@ const Layout = (props: Props) => {
                 <meta name="twitter:image" content={image} />
                 <meta name="twitter:site" content='@malcode' />
             </Head>
+
             <Header />
             <Nav />
             <div className="gv-main-container">
