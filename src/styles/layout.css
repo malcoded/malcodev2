@@ -650,6 +650,30 @@ p code {
 }
 
 
+.gv-pointer{
+  cursor: pointer;
+}
+
+/* coffe me */
+.floatingchat-container-wrap-mobi {
+  position: fixed;
+  z-index: 99999999!important;
+  width: 100%;
+  height: 65px;
+  max-width: 180px;
+  right: 185px !important;
+  bottom: 70px !important;
+}
+
+.floatingchat-container-wrap {
+  position: fixed;
+  bottom: 16px;
+  left: 78px !important;
+  z-index: 99999999 !important;
+  width: 100%;
+  height: 65px;
+  max-width: 180px;
+}
 /*
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops

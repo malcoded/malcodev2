@@ -10,8 +10,8 @@ type CardPostProps = {
 
 const CardPost = ({slug, title, date, description}: CardPostProps) => {
     return (
-        <article className="gv-card-post">
-            <Link href={slug}>
+        <article className="gv-card-post gv-pointer">
+            <Link href={`/${slug}`}>
                 <a>
                     <header>
                         <h3>{title}</h3>
