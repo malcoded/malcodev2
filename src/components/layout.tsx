@@ -50,6 +50,7 @@ const Layout = (props: Props) => {
                 <meta name="description" content={description} />
                 <meta name="keywords" content={keywords} />
                 <meta name="google-site-verification" content='GHsNI-Vz_wpgvLa4b9tgVzSx_tiS09URxJN60PB2_fw' />
+                <meta name="og:title" content={title} />
                 <meta name="og:type" content='website' />
                 <meta name="og:url" content={url} />
                 <meta name="og:image" content={image} />
