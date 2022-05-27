@@ -31,8 +31,8 @@ const Layout = (props: Props) => {
     } = props
 
     return (
-       <>
-            <Script id="google-adsend" strategy="lazyOnload" crossOrigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7834397565485258"/>
+        <>
+            <Script id="google-adsend" strategy="lazyOnload" crossOrigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7834397565485258" />
             <Script id="google-analytic" strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=UA-114960628-2`}>
                 {`    
                     window.dataLayer = window.dataLayer || []
@@ -41,7 +41,7 @@ const Layout = (props: Props) => {
                     gtag('config', 'UA-114960628-2')
                 `}
             </Script>
-            
+
             <Head>
 
                 <meta charSet="utf-8" />
@@ -61,17 +61,17 @@ const Layout = (props: Props) => {
                 <meta name="twitter:image" content={image} />
                 <meta name="twitter:site" content='@malcode' />
             </Head>
+
             <AuthProvider>
+                <Header />
+                <Nav />
+                <div className="gv-main-container">
+                    <main>{children}</main>
+                    <Footer menuLinks={menuLinks} />
 
-            <Header />
-            <Nav />
-            <div className="gv-main-container">
-                <main>{children}</main>
-                <Footer menuLinks={menuLinks} />
-
-                <Script id="buy-a-coffe" strategy="beforeInteractive" src={`https://storage.ko-fi.com/cdn/scripts/overlay-widget.js`}/>
-                <Script id="buy-a-coffe-support" strategy="afterInteractive">
-                    {`
+                    <Script id="buy-a-coffe" strategy="beforeInteractive" src={`https://storage.ko-fi.com/cdn/scripts/overlay-widget.js`} />
+                    <Script id="buy-a-coffe-support" strategy="afterInteractive">
+                        {`
                     kofiWidgetOverlay.draw('malcode', {
                         'type': 'floating-chat',
                         'floating-chat.donateButton.text': 'Support me',
@@ -79,9 +79,9 @@ const Layout = (props: Props) => {
                         'floating-chat.donateButton.text-color': '#fff'
                     });
                     `}
-                </Script>
-            </div>
-        </AuthProvider>
+                    </Script>
+                </div>
+            </AuthProvider>
         </>
     )
 }
