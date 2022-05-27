@@ -7,11 +7,11 @@ import fs from "fs"
 import path from "path"
 import matter from 'gray-matter'
 import Layout from 'components/layout'
-import Pagetitle from '../components/page.title'
+import Pagetitle from 'components/page.title'
 import Link from 'next/link'
-import Modal from '../components/modal'
-import AuthorTitle from '../components/author.title'
-import Rating from '../components/rating'
+import Modal from 'components/modal'
+import AuthorTitle from 'components/author.title'
+import Rating from 'components/rating'
 
 type PostPageProps = {
   frontMatter: any,
