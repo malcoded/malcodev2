@@ -1,5 +1,5 @@
-import {Html} from 'next/document'
 import {menuLinks} from '../utils/config'
+
 import Nav from './nav'
 import Header from './header'
 import Footer from './footer'
@@ -31,7 +31,7 @@ const Layout = (props: Props) => {
     } = props
 
     return (
-       <Html lang='es'>
+       <>
             <Script id="google-adsend" strategy="lazyOnload" crossOrigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7834397565485258"/>
             <Script id="google-analytic" strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=UA-114960628-2`}>
                 {`    
@@ -61,10 +61,10 @@ const Layout = (props: Props) => {
                 <meta name="twitter:image" content={image} />
                 <meta name="twitter:site" content='@malcode' />
             </Head>
+            <AuthProvider>
 
             <Header />
             <Nav />
-            <AuthProvider>
             <div className="gv-main-container">
                 <main>{children}</main>
                 <Footer menuLinks={menuLinks} />
@@ -82,7 +82,7 @@ const Layout = (props: Props) => {
                 </Script>
             </div>
         </AuthProvider>
-        </Html>
+        </>
     )
 }
 
