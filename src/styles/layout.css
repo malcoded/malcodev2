@@ -654,26 +654,7 @@ p code {
   cursor: pointer;
 }
 
-/* coffe me */
-.floatingchat-container-wrap-mobi {
-  position: fixed;
-  z-index: 99999999!important;
-  width: 100%;
-  height: 65px;
-  max-width: 180px;
-  right: 185px !important;
-  bottom: 70px !important;
-}
 
-.floatingchat-container-wrap {
-  position: fixed;
-  bottom: 16px;
-  left: 78px !important;
-  z-index: 99999999 !important;
-  width: 100%;
-  height: 65px;
-  max-width: 180px;
-}
 /*
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops
@@ -740,6 +721,11 @@ p code {
 */
 
 @media (min-width: 481px) and (max-width: 767px) {
+  /* coffe me */
+  #bmc-wbtn {
+    bottom: 75px !important;
+  }
+
   .gv-show-on-movile {
     display: none;
   }
@@ -755,6 +741,12 @@ p code {
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
+
+  /* coffe me */
+  #bmc-wbtn {
+    bottom: 75px !important;
+  }
+
   body {
     font-size: calc(var(--font-size) - 4px);
   }

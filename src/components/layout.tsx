@@ -41,7 +41,6 @@ const Layout = (props: Props) => {
                     gtag('config', 'UA-114960628-2')
                 `}
             </Script>
-
             <Head>
 
                 <meta charSet="utf-8" />
@@ -61,6 +60,20 @@ const Layout = (props: Props) => {
                 <meta name="twitter:description" content={description} />
                 <meta name="twitter:image" content={image} />
                 <meta name="twitter:site" content='@malcode' />
+
+                <script
+                    id="buy-a-coffe"
+                    data-name="BMC-Widget"
+                    src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+                    data-cfasync="false"
+                    data-id="malcode"
+                    data-description="Support me on Buy me a coffee!"
+                    data-message=""
+                    data-color="#ff813f"
+                    data-position="Right"
+                    data-x_margin="18"
+                    data-y_margin="18"
+                />
             </Head>
 
             <AuthProvider>
@@ -69,18 +82,6 @@ const Layout = (props: Props) => {
                 <div className="gv-main-container">
                     <main>{children}</main>
                     <Footer menuLinks={menuLinks} />
-
-                    <Script id="buy-a-coffe" strategy="beforeInteractive" src={`https://storage.ko-fi.com/cdn/scripts/overlay-widget.js`} />
-                    <Script id="buy-a-coffe-support" strategy="afterInteractive">
-                        {`
-                    kofiWidgetOverlay.draw('malcode', {
-                        'type': 'floating-chat',
-                        'floating-chat.donateButton.text': 'Support me',
-                        'floating-chat.donateButton.background-color': '#f45d22',
-                        'floating-chat.donateButton.text-color': '#fff'
-                    });
-                    `}
-                    </Script>
                 </div>
             </AuthProvider>
         </>
