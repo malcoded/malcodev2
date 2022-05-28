@@ -62,6 +62,7 @@ const Layout = (props: Props) => {
                 <meta name="twitter:site" content='@malcode' />
 
                 <script
+                    async
                     id="buy-a-coffe"
                     data-name="BMC-Widget"
                     src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
