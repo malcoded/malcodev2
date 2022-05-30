@@ -2,7 +2,8 @@ import {useState, useEffect} from 'react'
 import {MDXRemote} from 'next-mdx-remote'
 import {serialize} from 'next-mdx-remote/serialize'
 import {auth, onAuthGoogle, db, doc, getDoc, setDoc} from 'utils/firebase.config'
-import SyntaxHighlighter from 'react-syntax-highlighter'
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
+
 import fs from "fs"
 import path from "path"
 import matter from 'gray-matter'
@@ -13,6 +14,7 @@ import Modal from 'components/modal'
 import AuthorTitle from 'components/author.title'
 import Rating from 'components/rating'
 
+
 type PostPageProps = {
   frontMatter: any,
   slug: string,
@@ -21,7 +23,13 @@ type PostPageProps = {
   next: any
 }
 
-const components = {SyntaxHighlighter}
+const Code = ({children, language}: {children: any, language: string}) => {
+  return <SyntaxHighlighter language={language}>
+    {children}
+  </SyntaxHighlighter>
+}
+
+const components = {Code}
 
 const PostPage = ({frontMatter, slug, mdxSource, previous, next, }: PostPageProps) => {
 

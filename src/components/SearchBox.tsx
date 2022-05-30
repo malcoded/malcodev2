@@ -1,6 +1,7 @@
-import {useState} from 'react'
+import {ChangeEvent, useState} from 'react'
+import {onSearchAlgolia} from 'utils/config'
+import Link from 'next/link'
 
-// import Link from 'next/link'
 
 type Props = {
     showSearch: boolean
@@ -8,12 +9,11 @@ type Props = {
 }
 
 const SearchBox = (props: Props) => {
-
     const {showSearch, toggleOnSearch} = props
-    const [suggestions, /* setSuggestions */] = useState([])
-    /*     const dataSource: any = []
-     */
-    /* const findMatches = (wordToMatch: string, data: [] | any) => {
+    const [suggestions, setSuggestions] = useState<any>([])
+    const [loading, setLoading] = useState(false)
+
+    const findMatches = (wordToMatch: string, data: [] | any) => {
         const list = data.allMdx.edges
         return list.filter((item: any) => {
             const regex = new RegExp(wordToMatch, "gi")
@@ -22,40 +22,17 @@ const SearchBox = (props: Props) => {
                 (item && item.node.frontmatter.description.match(regex))
             )
         })
-    } */
+    }
 
-    /* const handleOnSearch = (event: HTMLInputElement) => {
+    const handleOnSearch = async (event: ChangeEvent<HTMLInputElement>) => {
         const {value} = event.target
-        if(value.length > 2) {
-
-            const regex = new RegExp(value, "gi")
-            const title = frontmatter.title.replace(regex, `<em>${value}</em>`)
-            const description = frontmatter.description.replace(regex, `<em>${value}</em>`)
-
-            return (
-                <Link
-                    className="gv-buscador-hit"
-                    href={fields.slug}
-                    onClick={toggleOnSearch}
-                >
-                    <h4>
-                        <span
-                            className="gv-hit-title"
-                            dangerouslySetInnerHTML={{__html: title}}
-                        />
-                    </h4>
-                    <p
-                        className="hit-description"
-                        dangerouslySetInnerHTML={{__html: description}}
-                    />
-                </Link>
-            )
-
-            setSuggestions([])
+        if(value.length > 1) {
+            const response = await onSearchAlgolia(value, 'posts', setLoading)
+            setSuggestions(response)
         } else {
             setSuggestions([])
         }
-    } */
+    }
 
     return (
         <div
@@ -71,16 +48,34 @@ const SearchBox = (props: Props) => {
                         type="search"
                         placeholder="Buscar..."
                         className="gv-buscador-input"
-                    // onChange={handleOnSearch}
+                        onChange={handleOnSearch}
                     />
                     <button
                         className="gv-btn gv-btn-sm gv-btn-red gv-buscador-close gv-remove-style"
                         onClick={toggleOnSearch}
                     >
-                        Cerrar
+                        {loading ? 'Buscando...' : 'Cerrar'}
                     </button>
                 </div>
-                {suggestions}
+                {suggestions.map((item: any) => (
+                    <Link
+                        href={`/posts/${item.url}`}
+                    >
+                        <span className="gv-buscador-hit gx-poi gx-pointer">
+                            <h4>
+                                <span
+                                    className="gv-hit-title"
+                                    dangerouslySetInnerHTML={{__html: item?._highlightResult?.name?.value}}
+                                />
+                            </h4>
+                            <p
+                                className="hit-description"
+                            >
+                                {item?.descriptions}
+                            </p>
+                        </span>
+                    </Link>
+                ))}
             </div>
         </div>
     )
