@@ -32,6 +32,17 @@ const Layout = (props: Props) => {
 
     return (
         <>
+            <Script id="google-adsend" strategy="lazyOnload" crossOrigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7834397565485258" />
+            <Script id="google-analytic" strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=G-D1SC4PXRD3`}>
+                {`    
+                     window.dataLayer = window.dataLayer || [];
+                     function gtag(){dataLayer.push(arguments);}
+                     gtag('js', new Date());
+                   
+                     gtag('config', 'G-D1SC4PXRD3');
+                `}
+            </Script>
+
             <Head>
 
                 <meta charSet="utf-8" />
@@ -66,16 +77,6 @@ const Layout = (props: Props) => {
                     data-x_margin="18"
                     data-y_margin="18"
                 />
-                <Script id="google-adsend" strategy="lazyOnload" crossOrigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7834397565485258" />
-                <Script id="google-analytic" strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=G-D1SC4PXRD3`}>
-                    {`    
-                     window.dataLayer = window.dataLayer || [];
-                     function gtag(){dataLayer.push(arguments);}
-                     gtag('js', new Date());
-                   
-                     gtag('config', 'G-D1SC4PXRD3');
-                `}
-                </Script>
             </Head>
 
             <AuthProvider>
