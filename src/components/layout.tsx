@@ -33,12 +33,13 @@ const Layout = (props: Props) => {
     return (
         <>
             <Script id="google-adsend" strategy="lazyOnload" crossOrigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7834397565485258" />
-            <Script id="google-analytic" strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=UA-114960628-2`}>
+            <Script id="google-analytic" strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=G-D1SC4PXRD3`}>
                 {`    
-                    window.dataLayer = window.dataLayer || []
-                    function gtag(){dataLayer.push(arguments)}
-                    gtag('js', new Date());
-                    gtag('config', 'UA-114960628-2')
+                     window.dataLayer = window.dataLayer || [];
+                     function gtag(){dataLayer.push(arguments);}
+                     gtag('js', new Date());
+                   
+                     gtag('config', 'G-D1SC4PXRD3');
                 `}
             </Script>
             <Head>
