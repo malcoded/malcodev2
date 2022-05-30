@@ -60,6 +60,7 @@ const SearchBox = (props: Props) => {
                 {suggestions.map((item: any) => (
                     <Link
                         href={`/posts/${item.url}`}
+                        key={item.objectID}
                     >
                         <span className="gv-buscador-hit gx-poi gx-pointer">
                             <h4>
