@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import {MDXRemote} from 'next-mdx-remote'
 import {serialize} from 'next-mdx-remote/serialize'
 import {auth, onAuthGoogle, db, doc, getDoc, setDoc} from 'utils/firebase.config'
-import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
+import SyntaxHighlighter from 'react-syntax-highlighter'
 
 import fs from "fs"
 import path from "path"
