@@ -23,13 +23,7 @@ type PostPageProps = {
   next: any
 }
 
-const Code = ({children, language}: {children: any, language: string}) => {
-  return <SyntaxHighlighter language={language}>
-    {children}
-  </SyntaxHighlighter>
-}
-
-const components = {Code}
+const components = {SyntaxHighlighter}
 
 const PostPage = ({frontMatter, slug, mdxSource, previous, next, }: PostPageProps) => {
 

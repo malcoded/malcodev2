@@ -28,42 +28,42 @@ Hagas lo que hagas, deberás configurarlo antes de poder usar el calendario (sol
 
 Importa bigcalendar y uno de los Localizadores, moment.js o globalize.js.
 
-<Code language="javascript">
+<SyntaxHighlighter language="javascript">
 {`
 import React, { Component } from "react"
 import BigCalendar from "react-big-calendar"
 import moment from "moment"
 `}
-</Code>
+</SyntaxHighlighter>
 
 ### Paso DOS
 
 Configura el localizador
 Necesita cargar el archivo de configuración regional que necesita. Por ejemplo, para nuestra aplicación (admitimos españo => es) hago:
 
-<Code language="javascript">
+<SyntaxHighlighter language="javascript">
 {`
 require("moment/locale/es.js")
 const localizer = BigCalendar.momentLocalizer(moment)
 `}
-</Code>
+</SyntaxHighlighter>
 
 Puedes incluir múltiples idiomas, solo debes requerir el archivo .js de idiomas según tu necesidad.
 
 Ejemplo (es,en, nl, fr,cs). [Más en moment.js](https://momentjs.com/docs/)
-<Code language="javascript">
+<SyntaxHighlighter language="javascript">
 {`
 require("moment/locale/es.js")
 require("moment/locale/cs.js")
 require("moment/locale/fr.js")
 require("moment/locale/nl.js")
 `}
-</Code>
+</SyntaxHighlighter>
 ### Paso TRES
 
 Creamos un un array de objetos, con nuestros eventos.
 
-<Code language="javascript">
+<SyntaxHighlighter language="javascript">
 {`
 const myEventsList = [
   {
@@ -78,14 +78,14 @@ const myEventsList = [
   },
 ]
 `}
-</Code>
+</SyntaxHighlighter>
 ### Paso CUATRO
 
 Agrega el componente BigCalendar,
 Asegúrate de que el contenedor de tu componente tenga una altura definida.
 `style={{height:${400}px}}` o lo puedes hacer en un archivo .css externo agregándole una clase al contenedor.
 
-<Code language="jsx">
+<SyntaxHighlighter language="jsx">
 {`
 class EventsCalendar extends Component {
   render() {
@@ -102,7 +102,7 @@ class EventsCalendar extends Component {
   }
 }
 `}
-</Code>
+</SyntaxHighlighter>
 
 Con esto ya tienes react-big-calendar integrado en tu app con el calendario en español más no los controles del calendario. Pues bien trabajemos en eso.
 
@@ -112,7 +112,7 @@ Con esto ya tienes react-big-calendar integrado en tu app con el calendario en e
 
 No hay mucho que hacer, en el componente BigCalendar agregamos la propiedad messages:
 
-<Code language="jsx">
+<SyntaxHighlighter language="jsx">
   {`
     class EventsCalendar extends Component {
       render() {
@@ -137,14 +137,14 @@ No hay mucho que hacer, en el componente BigCalendar agregamos la propiedad mess
       }
     }
   `}
-</Code>
+</SyntaxHighlighter>
 
 Es todo, ya tenemos los controles en nuestro idioma.
 
 ![BigCalendar](/files/bigcalendar02.png)
 
 Nuestro código final queda de la siguiente manera.
-<Code language="jsx">
+<SyntaxHighlighter language="jsx">
 {`
 import React, { Component } from "react"
 import BigCalendar from "react-big-calendar"
@@ -187,4 +187,4 @@ class EventsCalendar extends Component {
   }
 }
 `}
-</Code>
+</SyntaxHighlighter>
